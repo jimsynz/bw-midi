@@ -39,6 +39,7 @@ if respond_to?(:require)
   require File.expand_path('../../motion/midi/device.rb', __FILE__)
   require File.expand_path('../../motion/midi/entity.rb', __FILE__)
   require File.expand_path('../../motion/midi/source.rb', __FILE__)
+  require File.expand_path('../../motion/midi/client.rb', __FILE__)
   require File.expand_path('../../motion/midi/destination.rb', __FILE__)
 
 end
