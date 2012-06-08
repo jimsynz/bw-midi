@@ -16,6 +16,11 @@ module BubbleWrap
         puts "notification: #{message.inspect}, #{refcon.inspect}"
       end
 
+      def destroy
+        MIDIClientDispose(midi_id)
+        super
+      end
+
     end
   end
 end
