@@ -1,55 +1,46 @@
 module BubbleWrap
   module MIDI
 
-    class << self
+    module_function
 
-      def devices(count=device_count)
-        [].tap do |a|
-          count.times do |id|
-            a << Device.new(id)
-          end
+    def devices(count=device_count)
+      [].tap do |a|
+        count.times do |i|
+          a << Device.at(MIDIGetDevice(i))
         end
       end
+    end
 
-      def sources(count=source_count)
-        [].tap do |a|
-          count.times do |id|
-            a << Source.new(id)
-          end
+    def sources(count=source_count)
+      [].tap do |a|
+        count.times do |i|
+          a << Source.at(MIDIGetSource(i))
         end
       end
+    end
 
-      def destinations(count=destination_count)
-        [].tap do |a|
-          count.times do |id|
-            a << Destination.new(id)
-          end
+    def destinations(count=destination_count)
+      [].tap do |a|
+        count.times do |i|
+          a << Destination.at(MIDIGetDestination(i))
         end
       end
+    end
 
-      private
+    def device_count
+      MIDIGetNumberOfDevices()
+    end
 
-      def device_count
-        device_count = MIDIGetNumberOfDevices()
-        raise DeviceException, "Unable to retrieve number of connected devices" if device_count == 0
-        device_count
-      end
+    def source_count
+      MIDIGetNumberOfSources()
+    end
 
-      def source_count
-        source_count = MIDIGetNumberOfSources()
-        raise SourceException, "Unable to retrieve number of sources" if source_count == 0
-        source_count
-      end
-
-      def destination_count
-        dest_count = MIDIGetNumberOfDestinations()
-        raise DestinationException, "Unable to retrieve number of destinations" if dest_count == 0
-        dest_count
-      end
-
+    def destination_count
+      MIDIGetNumberOfDestinations()
     end
 
   end
+
 end
 
 ::MIDI = ::BubbleWrap::MIDI

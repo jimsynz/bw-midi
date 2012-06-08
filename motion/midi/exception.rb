@@ -1,4 +1,5 @@
-class MIDIException < Exception; end
-class DeviceException < MIDIException; end
-class SourceException < MIDIException; end
-class DestinationException < MIDIException; end
+class MIDIException
+  DeviceException = Class.new(MIDIException)
+  SourceException = Class.new(MIDIException)
+  DestinationException = Class.new(MIDIException)
+end

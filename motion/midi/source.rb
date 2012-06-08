@@ -1,12 +1,7 @@
 module BubbleWrap
   module MIDI
-    class Source
+    class Source < MIDIObject
 
-      def initialize(id)
-        @id = id
-        @source = MIDIGetSource(id)
-      end
-    
     end
   end
 end

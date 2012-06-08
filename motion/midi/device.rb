@@ -2,11 +2,6 @@ module BubbleWrap
   module MIDI
     class Device < MIDIObject
 
-      def initialize(id)
-        self.id = id
-        self.midi_ref = MIDIGetDevice(id)
-      end
-
       def offline
         properties['offline'] == 1
       end
@@ -16,8 +11,10 @@ module BubbleWrap
       end
 
       def entities
-        properties['entities'].map do |entity|
-          Entity.new(entity['uniqueID'])
+        [].tap do |a|
+          MIDIDeviceGetNumberOfEntities(midi_id).times do |i|
+            a << Entity.at(MIDIDeviceGetEntity(midi_id, i))
+          end
         end
       end
 

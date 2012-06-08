@@ -1,14 +1,5 @@
 if respond_to?(:require)
 
-  framework 'CoreMIDI'
-
-  require File.expand_path('../../motion/midi.rb', __FILE__)
-  require File.expand_path('../../motion/midi/midi_object.rb', __FILE__)
-  require File.expand_path('../../motion/midi/device.rb', __FILE__)
-  require File.expand_path('../../motion/midi/entity.rb', __FILE__)
-  require File.expand_path('../../motion/midi/source.rb', __FILE__)
-  require File.expand_path('../../motion/midi/destination.rb', __FILE__)
-
   class String
     # Convert 'snake_case' into 'CamelCase'
     def camelize(uppercase_first_letter = true)
@@ -39,6 +30,16 @@ if respond_to?(:require)
       word
     end
   end
+
+  framework 'CoreMIDI'
+
+  require File.expand_path('../../motion/midi.rb', __FILE__)
+  require File.expand_path('../../motion/midi/midi_object_cache.rb', __FILE__)
+  require File.expand_path('../../motion/midi/midi_object.rb', __FILE__)
+  require File.expand_path('../../motion/midi/device.rb', __FILE__)
+  require File.expand_path('../../motion/midi/entity.rb', __FILE__)
+  require File.expand_path('../../motion/midi/source.rb', __FILE__)
+  require File.expand_path('../../motion/midi/destination.rb', __FILE__)
 
 end
 

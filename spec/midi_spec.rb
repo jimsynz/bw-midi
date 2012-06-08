@@ -19,11 +19,7 @@ describe BubbleWrap::MIDI do
       end
 
       it 'has a device id' do
-        @device.id.should >= 0
-      end
-
-      it 'has a midi object reference' do
-        @device.midi_ref.should >= 0
+        @device.midi_id.should >= 0
       end
     end
   end
