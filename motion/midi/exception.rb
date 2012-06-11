@@ -1,5 +1,19 @@
-class MIDIException
-  DeviceException = Class.new(MIDIException)
-  SourceException = Class.new(MIDIException)
-  DestinationException = Class.new(MIDIException)
+class MIDIException < Exception
+  DeviceException = Class.new(self)
+  SourceException = Class.new(self)
+  DestinationException = Class.new(self)
+  InvalidClient = Class.new(self)
+  InvalidPort = Class.new(self)
+  WrongEndpointType = Class.new(self)
+  NonExistantConnection = Class.new(self)
+  UnknownEndpoint = Class.new(self)
+  UnknownProperty = Class.new(self)
+  WrongPropertyType = Class.new(self)
+  NoCurrentSetup = Class.new(self)
+  MessageSendError = Class.new(self)
+  ServerStartError = Class.new(self)
+  SetupFormatError = Class.new(self)
+  WrongThread = Class.new(self)
+  ObjectNotFound = Class.new(self)
+  NotUnique = Class.new(self)
 end

@@ -17,6 +17,10 @@ module BubbleWrap
         @properties ||= get_object_properties
       end
 
+      def refresh_properties
+        @properties = get_object_properties
+      end
+
       def method_missing(method, *args)
         begin
           properties.fetch(method.to_s.camelize(false))
