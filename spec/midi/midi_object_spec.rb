@@ -38,6 +38,14 @@ describe BubbleWrap::MIDI::MIDIObject do
     end
   end
 
+  describe '#unique_id=' do
+    it 'can be set' do
+      @uid = rand(0xffff)
+      @midi.unique_id = @uid
+      @midi.unique_id.should == @uid
+    end
+  end
+
   describe '#destroy' do
     it 'removes itself from the instance cache' do
       midi_id = @midi.midi_id

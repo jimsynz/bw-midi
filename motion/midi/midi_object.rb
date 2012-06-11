@@ -1,8 +1,9 @@
 module BubbleWrap
   module MIDI
     class MIDIObject
+      include ::BubbleWrap::MIDI::Ext::UniqueID
 
-      attr_accessor :midi_id
+      attr_accessor :midi_id, :refcon
       attr_writer :properties
 
       def self.at(midi_id)
@@ -46,7 +47,9 @@ module BubbleWrap
       def get_object_properties
         dict = Pointer.new(:object)
         MIDIObjectGetProperties(midi_id, dict, false)
-        dict[0]
+        dict = dict[0]
+        dict.delete('uniqueId') if dict['uniqueId']
+        dict
       end
 
     end

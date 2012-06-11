@@ -34,8 +34,9 @@ if respond_to?(:require)
   framework 'CoreMIDI'
 
   require File.expand_path('../../motion/midi/exception.rb', __FILE__)
-  require File.expand_path('../../motion/midi.rb', __FILE__)
   require File.expand_path('../../motion/midi/midi_object_cache.rb', __FILE__)
+  require File.expand_path('../../motion/midi/ext/unique_id.rb', __FILE__)
+  require File.expand_path('../../motion/midi/ext/advance_schedule_time.rb', __FILE__)
   require File.expand_path('../../motion/midi/midi_object.rb', __FILE__)
   require File.expand_path('../../motion/midi/device.rb', __FILE__)
   require File.expand_path('../../motion/midi/entity.rb', __FILE__)
@@ -45,6 +46,7 @@ if respond_to?(:require)
   require File.expand_path('../../motion/midi/port.rb', __FILE__)
   require File.expand_path('../../motion/midi/input_port.rb', __FILE__)
   require File.expand_path('../../motion/midi/output_port.rb', __FILE__)
+  require File.expand_path('../../motion/midi.rb', __FILE__)
 
 end
 

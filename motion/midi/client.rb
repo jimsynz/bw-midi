@@ -16,7 +16,7 @@ module BubbleWrap
         refcon_p = Pointer.new(:object)
         refcon_p[0] = id
         MIDI.status{ MIDIClientCreate(name, method(:notification), refcon_p, midi_id_p) }
-        self.new midi_id_p[0]
+        self.at(midi_id_p[0]).tap { |m| m.refcon = refcon_p[0] }
       end
 
       def self.notification(message, refcon)

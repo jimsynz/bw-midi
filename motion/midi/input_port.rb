@@ -7,7 +7,7 @@ module BubbleWrap
         refcon_p = Pointer.new(:object)
         refcon_p[0] = id
         MIDI.status{MIDIInputPortCreate(client.midi_id, name, method(:incoming_midi_packets), refcon_p, midi_id_p)}
-        self.new midi_id_p[0]
+        self.at(midi_id_p[0]).tap { |m| m.refcon = refcon_p[0] }
       end
 
       def self.incoming_midi_packets(packet_list, port_id, source_id)

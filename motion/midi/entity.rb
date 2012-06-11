@@ -1,6 +1,20 @@
 module BubbleWrap
   module MIDI
     class Entity < MIDIObject
+      include BubbleWrap::MIDI::Ext::AdvanceScheduleTime
+      include BubbleWrap::MIDI::Ext::CanRoute
+      include BubbleWrap::MIDI::Ext::ConnectionUniqueID
+      include BubbleWrap::MIDI::Ext::DeviceID
+      include BubbleWrap::MIDI::Ext::DisplayName
+      include BubbleWrap::MIDI::Ext::DriverOwner
+      include BubbleWrap::MIDI::Ext::DriverVersion
+      include BubbleWrap::MIDI::Ext::IsBroadcast
+      include BubbleWrap::MIDI::Ext::IsDrumMachine
+      include BubbleWrap::MIDI::Ext::IsEffectUnit
+      include BubbleWrap::MIDI::Ext::IsEmbeddedEntity
+      include BubbleWrap::MIDI::Ext::IsMixer
+      include BubbleWrap::MIDI::Ext::IsSampler
+      include BubbleWrap::MIDI::Ext::MaxReceiveChannels
 
       def properties
         super
