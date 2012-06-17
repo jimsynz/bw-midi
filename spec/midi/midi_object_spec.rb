@@ -3,7 +3,6 @@ require File.expand_path('../../spec_helper', __FILE__) if respond_to?(:require)
 describe BubbleWrap::MIDI::MIDIObject do
   before do
     @midi = BW::MIDI.devices.first
-    @prop = @midi.properties.keys.last.to_s.underscore.to_sym
   end
 
   describe '.at' do
@@ -21,20 +20,6 @@ describe BubbleWrap::MIDI::MIDIObject do
   describe '#properties' do
     it 'returns a hash' do
       @midi.properties.is_a?(Hash).should == true
-    end
-  end
-
-  describe "#respond_to?" do
-    it 'makes fake respond_tos for properties' do
-      @midi.respond_to?(@prop).should == true
-    end
-  end
-
-  describe '#method_missing' do
-    it 'makes fake methods for properties' do
-      should.not.raise(NoMethodError) do
-        @midi.send(@prop)
-      end
     end
   end
 
