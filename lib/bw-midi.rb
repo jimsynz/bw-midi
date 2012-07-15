@@ -9,6 +9,8 @@ BW.require 'motion/**/*.rb' do
   file('motion/midi/entity.rb').depends_on 'motion/midi/midi_object.rb'
   file('motion/midi/source.rb').depends_on 'motion/midi/midi_object.rb'
   file('motion/midi/destination.rb').depends_on 'motion/midi/midi_object.rb'
+
   file('motion/midi/client.rb').depends_on 'motion/midi/midi_object.rb'
+  file('motion/midi/client.rb').depends_on 'motion/midi/input_port.rb'
 end
 
